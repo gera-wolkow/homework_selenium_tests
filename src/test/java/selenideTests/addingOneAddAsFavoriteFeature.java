@@ -79,6 +79,9 @@ public class addingOneAddAsFavoriteFeature extends Main{
         Assert.assertTrue($("div[id=alert_dv]").isDisplayed());
         Assert.assertEquals("Attention", $("div[class=alert_head_left]").text());
         Assert.assertEquals("Advertisement added to favorites.", $("div[id=alert_msg]").text());
+        $("a[id=alert_ok]").click();
+        $("div[id=alert_dv]").should(Condition.disappear);
+        Assert.assertFalse($("div[id=alert_dv]").isDisplayed());
     }
 
     @Test
