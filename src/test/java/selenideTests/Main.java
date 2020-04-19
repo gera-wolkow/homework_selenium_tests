@@ -15,16 +15,15 @@ import static com.codeborne.selenide.Condition.*;
  * Created by iuriiryndin on 18.04.2020
  */
 public class Main {
-    public static String announcementId;
 
     @BeforeMethod
     public static void setUpBrowser () {
         open("https://www.ss.com/en");
         Selenide.clearBrowserCookies();
         Selenide.clearBrowserLocalStorage();
-        $(By.className("main_head2")).click();
-        $(By.id("ahc_14080")).click();
-        $(By.id("ahc_321")).click();
+        $("a[title=Job\\ and\\ business]").click();
+        $("a[title=Vacancies\\ \\(Staff\\ required\\)\\,\\ Announcements]").click();
+        $("a[title=Administrator\\,\\ Announcements]").click();
     }
 
     public static String getRandomAdd() {

@@ -1,11 +1,10 @@
 package selenideTests;
 
-import com.codeborne.selenide.Selenide;
 import org.junit.Assert;
 import org.testng.annotations.Test;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.WebDriverRunner.url;
 
 /**
  * Created by iuriiryndin on 18.04.2020
@@ -13,15 +12,15 @@ import static com.codeborne.selenide.Selenide.$;
 public class addingOneAddAsFavoriteFeature extends Main{
 
     @Test (priority = 0)
-    public void navigatingToAnnouncement() {
+    public static void navigatingToAnnouncement() {
         String announcementId = getRandomAdd();
-        String companyNameInList = $(By.id(announcementId)).$(By.className("amopt")).text();
-        String locationInList = $(By.id(announcementId)).$(By.className("ads_region")).text();
-        String titleInList = $(By.id(announcementId)).$("a[id^=dm_]").text();
-        $(By.id(announcementId)).click();
-        String companyNameOnPage = $(By.id("tdo_357")).text();
-        String locationOnPage = $(By.id("tdo_1284")).text();
-        String[] lines = $(By.id("msg_div_msg")).text().split("\\r?\\n");
+        String companyNameInList = $("tr[id=" +announcementId + "]").$("a[class=amopt]").text();
+        String locationInList = $("tr[id=" +announcementId + "]").$("div[class=ads_region]").text();
+        String titleInList = $("tr[id=" +announcementId + "]").$("a[id^=dm_]").text();
+        $("tr[id=" +announcementId + "]").click();
+        String companyNameOnPage = $("td[id=tdo_357]").text();
+        String locationOnPage = $("td[id=tdo_1284]").text();
+        String[] lines = $("div[id=msg_div_msg]").text().split("\\r?\\n");
         String titleOnPage = lines[0];
         Assert.assertEquals(companyNameInList, companyNameOnPage);
         Assert.assertEquals(locationInList, locationOnPage);
@@ -29,19 +28,29 @@ public class addingOneAddAsFavoriteFeature extends Main{
     }
 
     @Test (priority = 1)
-    public void checkingMemoNumber() {
+    public static void checkingMemoNumber() {
         String announcementId = getRandomAdd();
-        $(By.id(announcementId)).click();
-        $(By.id("a_fav")).click();
-        Assert.assertEquals(" (1)", $(By.id("mnu_fav_id")).text());
+        $("tr[id=" +announcementId + "]").click();
+        $("a[id=a_fav]").click();
+        Assert.assertEquals(" (1)", $("span[id=mnu_fav_id]").text());
     }
 
     @Test (priority = 2)
-    public void checkingMemoList() {
+    public static void checkingMemoList() {
+        $("a[title=Memo]").click();
+        Assert.assertEquals("https://www.ss.com/en/favorites/", url());
+        Assert.assertFalse($("form[id=filter_frm]").isDisplayed());
+        $("a[title=Объявления]").click();
+        $("a[title=Job\\ and\\ business]").click();
+        $("a[title=Vacancies\\ \\(Staff\\ required\\)\\,\\ Announcements]").click();
+        $("a[title=Administrator\\,\\ Announcements]").click();
         String announcementId = getRandomAdd();
-        $(By.id(announcementId)).click();
-        $(By.id("a_fav")).click();
-        $(By.className("a_menu")).click();
-        Assert.assertEquals(" (1)", $(By.id("mnu_fav_id")).text());
+        $("tr[id=" +announcementId + "]").click();
+        $("a[id=a_fav]").click();
+        $("a[title=Memo]").click();
+        Assert.assertEquals("https://www.ss.com/en/favorites/", url());
+        Assert.assertTrue($("form[id=filter_frm]").isDisplayed());
+        Assert.assertEquals(announcementId, $("tr[id^=tr_]").getAttribute("id"));
+
     }
 }
