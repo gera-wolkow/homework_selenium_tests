@@ -29,7 +29,7 @@ public class addingSeveralAddsAsFavoriteFeature extends Main{
     @Test
     public static void checkingMemoList () {
         defaultPage.goToFavorites();
-        Assert.assertEquals("https://www.ss.com/en/favorites/", url());
+        Assert.assertEquals(url(), mainUrl + localization + "/favorites/");
         Assert.assertFalse(announcementList.listOfAnnouncements.isDisplayed());
         announcementList.getToAnnouncementList ();
         String announcementIdOne = getRandomAdd();
@@ -42,7 +42,7 @@ public class addingSeveralAddsAsFavoriteFeature extends Main{
         announcementList.addToFavorites (announcementIdTwo);
         defaultPage.confirmNotification();
         defaultPage.goToFavorites();
-        Assert.assertEquals("https://www.ss.com/en/favorites/", url());
+        Assert.assertEquals(url(), mainUrl + localization + "/favorites/");
         ElementsCollection list = announcementList.getListOfAnnouncements;
         int i = 0;
         while (i < list.size()) {
@@ -56,8 +56,8 @@ public class addingSeveralAddsAsFavoriteFeature extends Main{
         String announcementIdOne = getRandomAdd();
         announcementList.addToFavorites (announcementIdOne);
         Assert.assertTrue(defaultPage.notificationAlert.isDisplayed());
-        Assert.assertEquals("Attention", defaultPage.getNotificationHead());
-        Assert.assertEquals("Advertisement added to favorites.", defaultPage.getNotificationBody());
+        Assert.assertEquals(translation.get("notificationHeader"), defaultPage.getNotificationHead());
+        Assert.assertEquals(translation.get("notificationBody"), defaultPage.getNotificationBody());
         defaultPage.confirmNotification();
         Assert.assertFalse(defaultPage.notificationAlert.isDisplayed());
     }

@@ -23,10 +23,9 @@ public class announcementList {
     public static ElementsCollection getListOfAnnouncements = $$("tr[id^=tr_]");
 
     public static void getToAnnouncementList () {
-        $("a[title=Объявления]").click();
-        $("a[title=Job\\ and\\ business]").click();
-        $("a[title=Vacancies\\ \\(Staff\\ required\\)\\,\\ Announcements]").click();
-        $("a[title=Administrator\\,\\ Announcements]").click();
+        $("span[class=page_header_head]").click();
+        $("a[id=mtd_14080]").click();
+        $("a[id=ahc_321]").click();
     }
 
     public static void openAnnouncement(String id) {

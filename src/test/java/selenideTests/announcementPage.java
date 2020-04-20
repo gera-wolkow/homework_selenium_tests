@@ -10,7 +10,7 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class announcementPage {
 
-    public static SelenideElement addToFavoritesButton = $("a[title=Add\\ to\\ favorites]");
+    public static SelenideElement addToFavoritesButton = $("a[id=a_fav]");
 
     public static void addToFavorites () {
         addToFavoritesButton.click();

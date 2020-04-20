@@ -17,10 +17,10 @@ public class removingAddFromFavoriteFeature extends Main{
         announcementPage.addToFavorites();
         defaultPage.confirmNotification();
         defaultPage.goToFavorites();
-        Assert.assertEquals("https://www.ss.com/en/favorites/", url());
+        Assert.assertEquals(url(), mainUrl + localization + "/favorites/");
         Assert.assertTrue(announcementList.listOfAnnouncements.isDisplayed());
         announcementList.removeFromFavorites(announcementId);
-        Assert.assertEquals("https://www.ss.com/en/favorites/", url());
+        Assert.assertEquals(url(), mainUrl + localization + "/favorites/");
         Assert.assertFalse(announcementList.listOfAnnouncements.isDisplayed());
     }
 

@@ -13,7 +13,7 @@ public class defaultPage {
     public static SelenideElement notificationAlert = $("div[id=alert_dv]");
 
     public static void goToFavorites () {
-        $("a[title=Memo]").click();
+        $("span[class=page_header_menu]").$$("a[class=a_menu]").get(3).click();
     }
 
     public static String getFavoritesNumber () {

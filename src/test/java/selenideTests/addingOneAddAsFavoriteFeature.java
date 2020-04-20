@@ -36,7 +36,7 @@ public class addingOneAddAsFavoriteFeature extends Main{
     @Test
     public static void checkingMemoList() {
         defaultPage.goToFavorites();
-        Assert.assertEquals("https://www.ss.com/en/favorites/", url());
+        Assert.assertEquals(url(), mainUrl + localization + "/favorites/");
         Assert.assertFalse(announcementList.listOfAnnouncements.isDisplayed());
         announcementList.getToAnnouncementList ();
         String announcementId = getRandomAdd();
@@ -44,7 +44,7 @@ public class addingOneAddAsFavoriteFeature extends Main{
         announcementPage.addToFavorites();
         defaultPage.confirmNotification();
         defaultPage.goToFavorites();
-        Assert.assertEquals("https://www.ss.com/en/favorites/", url());
+        Assert.assertEquals(url(), mainUrl + localization + "/favorites/");
         Assert.assertTrue(announcementList.listOfAnnouncements.isDisplayed());
         org.testng.Assert.assertEquals(announcementList.getListOfAnnouncements.size(), 1);
         Assert.assertEquals(announcementId, announcementList.getListOfAnnouncements.get(0).getAttribute("id"));
@@ -58,7 +58,7 @@ public class addingOneAddAsFavoriteFeature extends Main{
         announcementPage.addToFavorites();
         defaultPage.confirmNotification();
         defaultPage.goToFavorites();
-        Assert.assertEquals("https://www.ss.com/en/favorites/", url());
+        Assert.assertEquals(url(), mainUrl + localization + "/favorites/");
         announcementList.openAnnouncement(announcementId);
         Assert.assertEquals(announcementUrl, url());
     }
@@ -69,8 +69,8 @@ public class addingOneAddAsFavoriteFeature extends Main{
         announcementList.openAnnouncement(announcementId);
         announcementPage.addToFavorites();
         Assert.assertTrue(defaultPage.notificationAlert.isDisplayed());
-        Assert.assertEquals("Attention", defaultPage.getNotificationHead());
-        Assert.assertEquals("Advertisement added to favorites.", defaultPage.getNotificationBody());
+        Assert.assertEquals(translation.get("notificationHeader"), defaultPage.getNotificationHead());
+        Assert.assertEquals(translation.get("notificationBody"), defaultPage.getNotificationBody());
         defaultPage.confirmNotification();
         Assert.assertFalse(defaultPage.notificationAlert.isDisplayed());
     }
@@ -79,6 +79,6 @@ public class addingOneAddAsFavoriteFeature extends Main{
     public static void checkingAnnouncementPage () {
         String announcementId = getRandomAdd();
         announcementList.openAnnouncement(announcementId);
-        Assert.assertEquals("Add to favorites", announcementPage.addToFavoritesButton.text());
+        Assert.assertEquals(translation.get("favoriteButton"), announcementPage.addToFavoritesButton.text());
     }
 }
