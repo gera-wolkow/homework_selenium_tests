@@ -7,7 +7,6 @@ import org.testng.annotations.BeforeMethod;
 import java.util.Random;
 
 import static com.codeborne.selenide.Selenide.*;
-import static selenideTests.announcementList.*;
 
 /**
  * Created by iuriiryndin on 18.04.2020
@@ -17,7 +16,7 @@ public class Main {
     @BeforeMethod
     public static void setUpBrowser () {
         open("https://www.ss.com/en");
-        getToAnnouncementList ();
+        announcementList.getToAnnouncementList ();
     }
 
     @AfterMethod
@@ -29,7 +28,7 @@ public class Main {
     public static String getRandomAdd() {
         Random r = new Random();
         int random = r.nextInt(10);
-        return getListOfAnnouncements.get(random).getAttribute("id");
+        return announcementList.getListOfAnnouncements.get(random).getAttribute("id");
     }
 
 }

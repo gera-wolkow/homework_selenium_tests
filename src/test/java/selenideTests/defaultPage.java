@@ -23,12 +23,12 @@ public class defaultPage {
 
     public static void confirmNotification () {
         $("a[id=alert_ok]").click();
-        $("div[id=alert_dv]").should(Condition.disappear);
+        notificationAlert.should(Condition.disappear);
     }
 
     public static void closeNotification () {
         $("div[class=alert_head_right]").click();
-        $("div[id=alert_dv]").should(Condition.disappear);
+        notificationAlert.should(Condition.disappear);
     }
 
     public static String getNotificationHead () {

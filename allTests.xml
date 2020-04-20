@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name = "allTests">
+    <test name = "adding one announcement in favorites from announcement page">
+        <classes>
+            <class name = "selenideTests.addingOneAddAsFavoriteFeature"/>
+        </classes>
+    </test>
+    <test name = "adding several announcements in favorites from list">
+        <classes>
+            <class name = "selenideTests.addingSeveralAddsAsFavoriteFeature"/>
+        </classes>
+    </test>
+    <test name = "removing announcements from favorites">
+        <classes>
+            <class name = "selenideTests.removingAddFromFavoriteFeature"/>
+        </classes>
+    </test>
+</suite>

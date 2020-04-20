@@ -2,7 +2,6 @@ package selenideTests;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -14,7 +13,7 @@ public class announcementPage {
     public static SelenideElement addToFavoritesButton = $("a[title=Add\\ to\\ favorites]");
 
     public static void addToFavorites () {
-        $("a[title=Add\\ to\\ favorites]").click();
+        addToFavoritesButton.click();
         $("div[id=alert_dv]").should(Condition.appear);
     }
 
