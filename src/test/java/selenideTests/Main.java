@@ -1,5 +1,6 @@
 package selenideTests;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -26,6 +27,7 @@ public class Main {
 
     @BeforeSuite
     public static void start () throws IOException, ParseException {
+        Configuration.remote = "http://localhost:4444/wd/hub";
         Properties properties = new Properties();
         File file = new File("config.properties");
         FileInputStream fileIn = new FileInputStream(file);
@@ -37,8 +39,6 @@ public class Main {
         JSONParser parser = new JSONParser();
         Object obj = parser.parse(new FileReader(new File("./src/test/resources/" + localization + ".json")));
         translation = (JSONObject) obj;
-
-//        String name = (String) translation.get("name");
     }
 
     @BeforeMethod
