@@ -1,14 +1,16 @@
-package selenideTests;
+package main.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import main.Main;
+import main.pages.*;
 
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 /**
  * Created by iuriiryndin on 19.04.2020
  */
-public class removingAddFromFavoriteFeature extends Main{
+public class removingAddFromFavoriteFeature extends Main {
 
     @Test
     public static void removingSingleAnnouncement () {

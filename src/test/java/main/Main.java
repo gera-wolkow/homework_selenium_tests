@@ -1,4 +1,4 @@
-package selenideTests;
+package main;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
@@ -8,6 +8,7 @@ import org.json.simple.parser.ParseException;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import main.pages.*;
 
 import java.io.*;
 import java.util.Properties;
@@ -27,7 +28,7 @@ public class Main {
 
     @BeforeSuite
     public static void start () throws IOException, ParseException {
-        Configuration.remote = "http://localhost:4444/wd/hub";
+//        Configuration.remote = "http://localhost:4444/wd/hub";
         Properties properties = new Properties();
         File file = new File("config.properties");
         FileInputStream fileIn = new FileInputStream(file);

@@ -1,15 +1,17 @@
-package selenideTests;
+package main.tests;
 
 import com.codeborne.selenide.ElementsCollection;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import main.Main;
+import main.pages.*;
 
 import static com.codeborne.selenide.WebDriverRunner.url;
 
 /**
  * Created by iuriiryndin on 18.04.2020
  */
-public class addingSeveralAddsAsFavoriteFeature extends Main{
+public class addingSeveralAddsAsFavoriteFeature extends Main {
 
     @Test
     public static void checkingMemoNumber () {

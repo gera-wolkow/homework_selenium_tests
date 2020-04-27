@@ -1,7 +1,9 @@
-package selenideTests;
+package main.tests;
 
+import main.Main;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import main.pages.*;
 
 import static com.codeborne.selenide.WebDriverRunner.url;
 
@@ -10,10 +12,10 @@ import static com.codeborne.selenide.WebDriverRunner.url;
 /**
  * Created by iuriiryndin on 18.04.2020
  */
-public class addingOneAddAsFavoriteFeature extends Main{
+public class addingOneAddAsFavoriteFeature extends Main {
 
     @Test
-    public static void navigatingToAnnouncement() {
+    public void navigatingToAnnouncement() {
         String announcementId = getRandomAdd();
         String companyNameInList = announcementList.getAnnouncementCompanyName(announcementId);
         String locationInList = announcementList.getAnnouncementLocation(announcementId);
