@@ -9,16 +9,16 @@ import static com.codeborne.selenide.Selenide.*;
 /**
  * Created by iuriiryndin on 19.04.2020
  */
-public class announcementList {
+public class AnnouncementList {
 
-    public static SelenideElement showSelectedButton = $("a[id=show_selected_a]");
-    public static SelenideElement addToFavoritesButton = $("a[id=a_fav_sel]");
-    public static SelenideElement clearSelectedButton = $("a[id=clear_selected_a]");
-    public static SelenideElement removeFromFavoritesButton = $("a[id=del_selected_a]");
+    public static final SelenideElement SHOW_SELECTED_BUTTON = $("a[id=show_selected_a]");
+    public static final SelenideElement ADD_TO_FAVORITES_BUTTON = $("a[id=a_fav_sel]");
+    public static final SelenideElement CLEAR_SELECTED_BUTTON = $("a[id=clear_selected_a]");
+    public static final SelenideElement REMOVE_FROM_FAVORITES_BUTTON = $("a[id=del_selected_a]");
 
-    public static SelenideElement listOfAnnouncements = $("form[id=filter_frm]");
+    public static final SelenideElement LIST_OF_ANNOUNCEMENTS = $("form[id=filter_frm]");
 
-    public static ElementsCollection getListOfAnnouncements = $$("tr[id^=tr_]");
+    public static final ElementsCollection GET_LIST_OF_ANNOUNCEMENTS = $$("tr[id^=tr_]");
 
     public static void getToAnnouncementList () {
         $("span[class=page_header_head]").click();
@@ -36,15 +36,15 @@ public class announcementList {
 
     public static void addToFavorites (String id) {
         $("tr[id=" + id + "]").$("input[id^=c]").click();
-        addToFavoritesButton.should(Condition.appear);
-        addToFavoritesButton.click();
+        ADD_TO_FAVORITES_BUTTON.should(Condition.appear);
+        ADD_TO_FAVORITES_BUTTON.click();
         $("div[id=alert_dv]").should(Condition.appear);
     }
 
     public static void removeFromFavorites (String id) {
         $("tr[id=" + id + "]").$("input[id^=c]").click();
-        removeFromFavoritesButton.should(Condition.appear);
-        removeFromFavoritesButton.click();
+        REMOVE_FROM_FAVORITES_BUTTON.should(Condition.appear);
+        REMOVE_FROM_FAVORITES_BUTTON.click();
     }
 
     public static String getAnnouncementCompanyName (String id) {

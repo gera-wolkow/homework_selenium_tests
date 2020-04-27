@@ -3,17 +3,17 @@
 <suite name = "allTests">
     <test name = "adding one announcement in favorites from announcement page">
         <classes>
-            <class name = "main.tests.addingOneAddAsFavoriteFeature"/>
+            <class name = "main.tests.AddingOneAddAsFavoriteFeature"/>
         </classes>
     </test>
     <test name = "adding several announcements in favorites from list">
         <classes>
-            <class name = "main.tests.addingSeveralAddsAsFavoriteFeature"/>
+            <class name = "main.tests.AddingSeveralAddsAsFavoriteFeature"/>
         </classes>
     </test>
     <test name = "removing announcements from favorites">
         <classes>
-            <class name = "main.tests.removingAddFromFavoriteFeature"/>
+            <class name = "main.tests.RemovingAddFromFavoriteFeature"/>
         </classes>
     </test>
 </suite>

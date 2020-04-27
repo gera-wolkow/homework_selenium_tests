@@ -28,7 +28,7 @@ public class Main {
 
     @BeforeSuite
     public static void start () throws IOException, ParseException {
-//        Configuration.remote = "http://localhost:4444/wd/hub";
+       Configuration.remote = "http://localhost:4444/wd/hub";
         Properties properties = new Properties();
         File file = new File("config.properties");
         FileInputStream fileIn = new FileInputStream(file);
@@ -45,7 +45,7 @@ public class Main {
     @BeforeMethod
     public static void setUpBrowser () {
         open(mainUrl + localization);
-        announcementList.getToAnnouncementList ();
+        AnnouncementList.getToAnnouncementList ();
     }
 
     @AfterMethod
@@ -57,7 +57,7 @@ public class Main {
     public static String getRandomAdd() {
         Random r = new Random();
         int random = r.nextInt(10);
-        return announcementList.getListOfAnnouncements.get(random).getAttribute("id");
+        return AnnouncementList.GET_LIST_OF_ANNOUNCEMENTS.get(random).getAttribute("id");
     }
 
 }

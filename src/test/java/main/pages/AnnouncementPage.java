@@ -8,12 +8,12 @@ import static com.codeborne.selenide.Selenide.$;
 /**
  * Created by iuriiryndin on 19.04.2020
  */
-public class announcementPage {
+public class AnnouncementPage {
 
-    public static SelenideElement addToFavoritesButton = $("a[id=a_fav]");
+    public static final SelenideElement ADD_TO_FAVORITES_BUTTON = $("a[id=a_fav]");
 
     public static void addToFavorites () {
-        addToFavoritesButton.click();
+        ADD_TO_FAVORITES_BUTTON.click();
         $("div[id=alert_dv]").should(Condition.appear);
     }
 

@@ -8,9 +8,9 @@ import static com.codeborne.selenide.Selenide.$;
 /**
  * Created by iuriiryndin on 19.04.2020
  */
-public class defaultPage {
+public class DefaultPage {
 
-    public static SelenideElement notificationAlert = $("div[id=alert_dv]");
+    public static final SelenideElement NOTIFICATION_ALERT = $("div[id=alert_dv]");
 
     public static void goToFavorites () {
         $("span[class=page_header_menu]").$$("a[class=a_menu]").get(3).click();
@@ -23,12 +23,12 @@ public class defaultPage {
 
     public static void confirmNotification () {
         $("a[id=alert_ok]").click();
-        notificationAlert.should(Condition.disappear);
+        NOTIFICATION_ALERT.should(Condition.disappear);
     }
 
     public static void closeNotification () {
         $("div[class=alert_head_right]").click();
-        notificationAlert.should(Condition.disappear);
+        NOTIFICATION_ALERT.should(Condition.disappear);
     }
 
     public static String getNotificationHead () {
